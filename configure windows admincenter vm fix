@@ -1,0 +1,16 @@
+Ensure the Host Allows CredSSP & Remote PowerShell
+Run the following on the Hyper-V host:
+
+powershell
+Copy
+Edit
+Enable-PSRemoting -Force
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+Enable-WSManCredSSP -Role Server
+Enable-WSManCredSSP -Role Client -DelegateComputer "*"
+Also, restart WinRM:
+
+powershell
+Copy
+Edit
+Restart-Service WinRM
