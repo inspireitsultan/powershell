@@ -1,0 +1,12 @@
+$PSVersionTable.PSVersion
+download and install PowerShell 7.x from here:
+https://github.com/PowerShell/PowerShell/releases
+PowerShell 7, run:
+
+powershell
+Copy
+Edit
+Install-Module -Name PnP.PowerShell -Scope CurrentUser -AllowClobber -Force
+Import-Module PnP.PowerShell
+Get-Command -Module PnP.PowerShell | Where-Object { $_.Name -like "*EntraID*" }
+Register-PnPEntraIDAppForInteractiveLogin -ApplicationName "gilmartin_test" -Tenant "gilmartincap.onmicrosoft.com"
